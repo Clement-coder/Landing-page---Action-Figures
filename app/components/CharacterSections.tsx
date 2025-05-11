@@ -23,7 +23,7 @@ const CharacterSections = () => {
     <div className="px-4 md:px-32 mx-auto h-full">
       <section className="flex flex-col-reverse md:flex-row px-6 md:px-10 rounded-xl justify-between gap-8 py-16 bg-gradient-to-b from-[#a1d5ef] to-gray-200">
         <div className="text-center md:text-left">
-          <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-8">
+          <h1 className="text-4xl font-sans md:text-6xl font-bold leading-tight mb-8">
             <span>Buy your favorite</span>
             <br />
             <span>character action</span>
@@ -63,6 +63,7 @@ const CharacterSections = () => {
           <CarouselContent>
             {characterLinks.map((item, index) => (
               <CarouselItem
+              data-aos="fade-left"
                 key={index}
                 className="basis-1/2 md:basis-1/3 lg:basis-1/4"
               >
@@ -72,8 +73,11 @@ const CharacterSections = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
+          <div className="flex items-center mt-10 justify-between">
+               <CarouselPrevious className="relative left-16" />
+       
+               <CarouselNext className="relative right-16"/>
+               </div>
         </Carousel>
       </div>
     </div>
