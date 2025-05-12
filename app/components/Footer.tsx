@@ -9,16 +9,26 @@ const Footer = () => {
   const terms = ["Privacy Policy"]
   const visits = ["Jl. jendral sudirman 3 blok 4 no 34, Laweyan, laweyan, kota surakarta. phone: (0271)2222123"]
   return (
-    <div className='bg-[#222222] w-full'>
-         <div className=' px-6 md:px-32 gap-8 py-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
+    <div 
+    data-aos="fade-up"
+    className='bg-[#222222] w-full py-10 mt-10 overflow-x-hidden md:overflow-x-hidden'>
+         <div className='px-6 md:px-32 gap-8 py-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
          <div className="flex flex-col gap-4">
-          <span className='text-xl cursor-pointer font-bold text-white'>
+          <span 
+    data-aos="slide-left"
+
+          className='text-xl cursor-pointer font-bold text-white'>
             Yuu<span className="text-[#fc5b37]">Jou.</span>
             </span>
-          <p className='text-white'>
+          <p 
+    data-aos="slide-up"
+
+          className='text-white'>
             Make you fantasy come true</p>
 
-        <div className='flex items-center gap-2'>
+        <div 
+    data-aos="slide-up"
+        className='flex items-center gap-2 '>
       <FaFacebook 
       className='text-white text-2xl'/>
       <FaInstagram 
@@ -33,11 +43,14 @@ const Footer = () => {
         className='text-white flex flex-col gap-4'
         >
           <h1
+    data-aos="slide-left"
+
           className='text-lg font-medium'
           >Sound your idea</h1>
           {sounds.map((item, index) => (
             <li
-
+    data-aos="slide-up"
+            
             key={index}
             className="relative text-white cursor-pointer transition-all duration-300 ease-in-out 
              hover:text-[#fc5b37] 
@@ -54,12 +67,15 @@ const Footer = () => {
         className='text-white flex flex-col gap-4'
         >
           <h1
+    data-aos="slide-left"
+
           className='text-lg font-medium'
           >
           Terms and services
           </h1>
           {terms.map((item, index) => (
               <li
+              data-aos="slide-up"
 
               key={index}
               className="relative text-white cursor-pointer transition-all duration-300 ease-in-out 
@@ -77,12 +93,15 @@ const Footer = () => {
         className='text-white flex flex-col gap-4'
         >
           <h1
-          className='text-lg font-medium'
+    data-aos="slide-left"
+    className='text-lg font-medium'
           >
     Visit Yuujou
           </h1>
           {visits.map((item, index) => (
             <li
+    data-aos="slide-up"
+
             key={index}
             className='text-sm '
             >
