@@ -4,6 +4,8 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react"; 
 import Button from "./ui/Button";
 import Link from 'next/link';
+import { usePathname } from 'next/navigation'
+
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -13,6 +15,8 @@ const NavBar = () => {
 
 
   }
+
+  const pathname = usePathname();
 
   const navBarLinks = [
     { title: "Home", href: "/" },
@@ -25,7 +29,7 @@ const NavBar = () => {
     <nav className="w-full bg-white px-6 md:px-32  py-4 sticky top-0 left-0 z-50">
       <div className="flex justify-between items-center  mx-auto">
         
-      <Link href="/app">
+      <Link href="/">
       <div className="text-3xl cursor-pointer font-bold text-black">
           Yuu<span className="text-[#fc5b37]">Jou.</span>
         </div>
@@ -37,7 +41,7 @@ const NavBar = () => {
             <li
               key={index}
               className={`cursor-pointer ${
-                index === 0
+                pathname === link.href
                   ? "text-[#fc5b37] border-b-2 border-[#fc5b37]"
                   : "text-gray-500 "
               }`}

@@ -3,6 +3,7 @@ import CharacterSections from "./components/CharacterSections"
 import PreOrders from "./components/PreOrder"
 import Trendinds from "./components/Trendinds"
 import MostPopular from "./components/MostPopular"
+import Footer from "./components/Footer"
 
 const page = () => {
   return (
@@ -12,6 +13,7 @@ const page = () => {
       <PreOrders/>
       <Trendinds/>
       <MostPopular/>
+      <Footer/>
     </div>
   )
 }

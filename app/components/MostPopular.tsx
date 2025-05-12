@@ -7,7 +7,6 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-import Button from "./ui/Button";
   const populars = [
     {
       image: "/images/Screenshot from 2025-05-10 01-11-43.png",
@@ -44,11 +43,15 @@ const MostPopular = () => {
   return (
     <div>
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 px-4 sm:px-6 md:px-16 lg:px-32 mt-10 py-10'>
-      <h2 className="text-xl max-w-md sm:text-2xl mb-2 md:text-3xl font-bold">
+      <h2 
+      data-aos="fade-left"
+      className="text-xl max-w-md sm:text-2xl mb-2 md:text-3xl font-bold">
       Most Popular action figures this Week
         </h2>
 
-        <p className='text-gray-500'>
+        <p 
+        data-aos="fade-right"
+        className='text-gray-500'>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio sint recusandae exercitationem magni accusantium unde ad animi at non praesentium! Dolorem culpa expedita, error quod ab atque! Facere placeat maxime, minima, tenetur, est quod sint voluptate quos laborum architecto quaerat! Mollitia nesciunt molestias nisi. Sed nesciunt fugit molestiae quibusdam eaque.</p>
       </div>
 
@@ -93,16 +96,14 @@ const MostPopular = () => {
         </div>
       </Carousel>
     </div>
-    <Button 
-    className="absolute left-32   py-4 px-8"
-    text="Register"
-    >
-      
-    </Button>
+   
+    
     <img 
+    data-aos="fade-down"
     className="object-contain w-full px-4 sm:px-6 md:px-16 lg:px-32 mt-4 py-10"
     src="/images/frame.png"
-     alt="" />
+    alt="" 
+     />
     </div>
   )
 }
