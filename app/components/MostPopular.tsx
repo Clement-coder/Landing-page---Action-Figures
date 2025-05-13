@@ -7,6 +7,15 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { useState, useEffect } from "react";
+type Product = {
+  id: number;
+  title: string;
+  price: number;
+  description: string;
+  category: string;
+  image: string;
+};
+
 
 
   const populars = [
@@ -17,7 +26,7 @@ import { useState, useEffect } from "react";
   ];
 const MostPopular = () => {
 
-  const [mostPopular, setmostPopular] = useState ([])
+  const [mostPopular, setmostPopular] = useState<Product[]>([]);
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")

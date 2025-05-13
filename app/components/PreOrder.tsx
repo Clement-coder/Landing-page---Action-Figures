@@ -11,10 +11,19 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+type Product = {
+  id: number;
+  title: string;
+  price: number;
+  description: string;
+  category: string;
+  image: string;
+};
+
 
 
 const PreOrders = () => {
-  const [PreOrders, setPreOrders] = useState([]);
+  const [PreOrders, setPreOrders] = useState<Product[]>([]);
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
