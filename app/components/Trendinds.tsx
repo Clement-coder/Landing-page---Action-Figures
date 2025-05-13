@@ -10,35 +10,25 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
+import { useState, useEffect } from "react";
+
+
+
 const Trendinds = () => {
-  const trends = [
-    {
-      image: "/images/Screenshot from 2025-05-10 01-11-43.png",
-      title: "Bruce wayne batman detective comics",
-      price: "$29.99",
-      manufacturers: "Manufacturer: Megahouse",
-    },
-    {
-      image: "/images/Screenshot from 2025-05-10 01-11-53.png",
-      title: "Troops Stormtroopers in Starwars",
-      price: "$42.09",
-      manufacturers: "Manufacturer: Bandai",
-    },
-    {
-      image: "/images/Screenshot from 2025-05-10 01-11-59.png",
-      title: "Doctor tony chopper One Piece",
-      price: "$26.90",
-      manufacturers: "Manufacturer: Banpresto",
-    },
-    {
-      image: "/images/Screenshot from 2025-05-10 01-12-04.png",
-      title: "Nendoroid of Geralt as a Ronin Witcher!",
-      price: "$36.00",
-      manufacturers: "Manufacturer: Bandai",
-    },
-    
-    
-  ];
+
+
+  const [PreOrders, setPreOrders] = useState([]);
+
+  useEffect(() => {
+    fetch("https://fakestoreapi.com/products")
+      .then((res) => res.json())
+      .then((data) => setPreOrders(data.slice(10, 14)))
+      .catch((err) => console.error("Error fetching PreOrders:", err));
+  }, [5000]);
+
+  const trends = ["Manufacturer: Megahouse"];
+
+  
 
   return (
     <div>
@@ -60,7 +50,7 @@ const Trendinds = () => {
           <CarouselContent 
           
           className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-6">
-            {trends.map((item, index) => (
+            {PreOrders.map((item, index) => (
               <CarouselItem
             
   key={index}
@@ -70,16 +60,23 @@ const Trendinds = () => {
   data-aos="fade-left"
   className="bg-white gap-10 items-center rounded-xl shadow-md p-4 flex">
     <img 
+      data-aos="fade-left"
+
       src={item.image}
       alt={item.title}
+      width={200}
       className="w-[200px] h-[100px] object-contain"
     />
     <div className="flex flex-col gap-5 py-10">
     <h3 className="text-sm font-semibold">{item.title}</h3>
-    <p className="text-xs text-gray-500">{item.manufacturers}</p>
+    <p className="text-xs text-gray-500">
+      {trends.map((trending, index) => (
+        <span>{trending}</span>
+      ))}
+    </p>
     <div className="flex items-center text-left justify-start gap-2">
       <Button text="Pre-Order" className="text-xs px-3 py-1" />
-      <span className="text-sm font-bold">${item.price}</span>
+      <span className="text-sm font-bold">${item.price.toFixed(2)}</span>
     </div>
     </div>
   </div>

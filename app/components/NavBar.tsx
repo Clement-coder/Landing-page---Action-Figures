@@ -16,6 +16,8 @@ const NavBar = () => {
 
   }
 
+
+
   const pathname = usePathname();
 
   const navBarLinks = [
@@ -29,10 +31,14 @@ const NavBar = () => {
     <nav className="w-full bg-white px-6 md:px-32  py-4 sticky top-0 left-0 z-50">
       <div className="flex justify-between items-center  mx-auto">
         
+        <Link href="/">
+
           <div className="text-3xl cursor-pointer font-bold text-black">
           Yuu<span className="text-[#fc5b37]">Jou.</span>
         </div>
 
+        </Link>
+          
         <ul className="hidden lg:flex items-center gap-6 text-lg font-bold">
           {navBarLinks.map((link, index) => (
           
@@ -43,7 +49,7 @@ const NavBar = () => {
                   ? "text-[#fc5b37] border-b-2 border-[#fc5b37]"
                   : "text-gray-500 "
               }`}
-            >
+            > 
             <Link href={link.href}>
         {link.title}
       </Link>

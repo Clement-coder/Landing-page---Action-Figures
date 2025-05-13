@@ -3,6 +3,7 @@
 import React from "react";
 import { Star } from "lucide-react";
 import Button from "./ui/Button";
+import { useState, useEffect } from "react";
 import {
   Carousel,
   CarouselContent,
@@ -11,45 +12,22 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
+
 const PreOrders = () => {
-  const PreOrder = [
-    {
-      image: "/images/Screenshot from 2025-05-10 01-11-43.png",
-      title: "GONG MERY",
-      price: 30.98,
-    },
-    {
-      image: "/images/Screenshot from 2025-05-10 01-11-53.png",
-      title: "GONG MERY",
-      price: 30.98,
-    },
-    {
-      image: "/images/Screenshot from 2025-05-10 01-11-59.png",
-      title: "GONG MERY",
-      price: 30.98,
-    },
-    {
-      image: "/images/Screenshot from 2025-05-10 01-12-04.png",
-      title: "GONG MERY",
-      price: 30.98,
-    },
-    {
-      image: "/images/Screenshot from 2025-05-10 01-11-53.png",
-      title: "GONG MERY",
-      price: 30.98,
-    },
-    {
-      image: "/images/Screenshot from 2025-05-10 01-12-04.png",
-      title: "GONG MERY",
-      price: 30.98,
-    },
-  ];
+  const [PreOrders, setPreOrders] = useState([]);
+
+  useEffect(() => {
+    fetch("https://fakestoreapi.com/products")
+      .then((res) => res.json())
+      .then((data) => setPreOrders(data.slice(0, 10)))
+      .catch((err) => console.error("Error fetching PreOrders:", err));
+  }, [5000]);
 
   return (
     <div className="px-4 sm:px-6 md:px-16 lg:px-32 mt-16 py-10">
       <Carousel className="w-full">
         <CarouselContent>
-          {PreOrder.map((item, index) => (
+          {PreOrders.map((item, index) => (
             <CarouselItem
               key={index}
               className="basis-[85%] sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5"
@@ -57,12 +35,15 @@ const PreOrders = () => {
               <div 
               data-aos="fade-right"
               className="p-4 flex flex-col items-center">
-                <div className="bg-gray-50 p-6 rounded-md w-full flex justify-center">
+                <div 
+                              data-aos="fade-right"
+
+                className="bg-gray-50 p-6 rounded-md w-full flex justify-center">
                   <img
                     src={item.image}
                     alt={item.title}
                     width={100}
-                    className="mb-4 object-contain"
+                    className="mb-4 w-full h-[150px] object-contain"
                   />
                 </div>
 
